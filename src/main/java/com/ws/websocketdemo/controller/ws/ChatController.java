@@ -31,7 +31,7 @@ class ChatController {
 
     @MessageMapping("/message")
     public void handleMessage(ChatMessage message, @Header("simpSessionAttributes") Map<String, Object> sessionAttributes) {
-        String user = (String) sessionAttributes.get("user");
+        String user = (String) sessionAttributes.get("username");
         message.setSender(user);
         // Aquí podrías agregar lógica para procesar el mensaje, como agregar un timestamp
         message.setTimestamp(String.valueOf(System.currentTimeMillis()));
